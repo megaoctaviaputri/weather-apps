@@ -3,6 +3,7 @@ package controllers
 import (
 	"encoding/json"
 	"io/ioutil"
+	"math"
 	"net/http"
 
 	"weather-apps/models"
@@ -34,5 +35,6 @@ func GetWeatherController(c echo.Context) error {
 }
 
 func ConvertToCelcius(temp float64) float64 {
-	return temp - 273.15
+	temper := math.Ceil((temp-273.15)*100) / 100
+	return temper
 }
