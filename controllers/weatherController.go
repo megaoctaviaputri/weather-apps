@@ -16,7 +16,7 @@ func GetWeatherController(c echo.Context) error {
 
 	url := "https://api.openweathermap.org/data/2.5/weather?q=" + name + "&appid=" + appid
 
-	response, _ := http.Get(url)
+	response, err := http.Get(url)
 
 	responseData, _ := ioutil.ReadAll(response.Body)
 	defer response.Body.Close()
@@ -24,9 +24,9 @@ func GetWeatherController(c echo.Context) error {
 	var weatherTemp models.WeatherData
 	json.Unmarshal(responseData, &weatherTemp)
 
-	// if err != nil {
-	// 	return echo.NewHTTPError(http.StatusBadRequest, err.Error())
-	// }
+	if err != nil {
+		return echo.NewHTTPError(http.StatusBadRequest, err.Error())
+	}
 	return c.JSON(http.StatusOK, map[string]interface{}{
 		"name":        name,
 		"temperature": weatherTemp.Main.Temp,
