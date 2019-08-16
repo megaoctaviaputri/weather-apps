@@ -16,5 +16,9 @@ func New() *echo.Echo {
 	e.DELETE("/api/users/:id", c.DeleteUserController)
 	e.PUT("/api/users/:id", c.UpdateUserController)
 
+	// weather routing
+	// e.GET("/api/weather/:id", c.GetWeatherController)
+	e.GET("/api/weather/:name", c.GetWeatherController)
+
 	return e
 }
