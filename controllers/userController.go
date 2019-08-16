@@ -6,7 +6,7 @@ import (
 	"net/http"
 	"strconv"
 
-	"go-restful-training/models"
+	"weather-apps/models"
 
 	"github.com/labstack/echo"
 )

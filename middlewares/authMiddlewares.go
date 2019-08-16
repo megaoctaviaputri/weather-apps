@@ -1,19 +1,12 @@
 package middlewares
 
 import (
-	"go-restful-training/config"
-	"go-restful-training/controllers"
-	m "go-restful-training/models"
+	"weather-apps/config"
+	"weather-apps/controllers"
+	m "weather-apps/models"
 
 	"github.com/labstack/echo"
 )
-
-func BasicAuth(username string, password string, c echo.Context) (bool, error) {
-	if username == "admin" && password == "admin" {
-		return true, nil
-	}
-	return false, nil
-}
 
 func BasicAuth2(username, password string, c echo.Context) (bool, error) {
 	var db = config.DB

@@ -1,7 +1,7 @@
 package models
 
 import (
-	"go-restful-training/config"
+	"weather-apps/config"
 
 	"github.com/jinzhu/gorm"
 )

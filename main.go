@@ -1,11 +1,11 @@
 package main
 
 import (
-	"go-restful-training/config"
-	"go-restful-training/models"
-	"go-restful-training/routes"
+	"weather-apps/config"
+	"weather-apps/models"
+	"weather-apps/routes"
 
-	m "go-restful-training/middlewares"
+	m "weather-apps/middlewares"
 )
 
 func main() {
@@ -16,7 +16,7 @@ func main() {
 	// migration database
 	// InitialMigration()
 
-	e.Start(":8000")
+	e.Start(":7000")
 }
 
 func InitialMigration() {
