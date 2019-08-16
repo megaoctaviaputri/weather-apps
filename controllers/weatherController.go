@@ -29,6 +29,10 @@ func GetWeatherController(c echo.Context) error {
 	}
 	return c.JSON(http.StatusOK, map[string]interface{}{
 		"name":        name,
-		"temperature": weatherTemp.Main.Temp,
+		"temperature": ConvertToCelcius(weatherTemp.Main.Temp),
 	})
+}
+
+func ConvertToCelcius(temp float64) float64 {
+	return temp - 273.15
 }
